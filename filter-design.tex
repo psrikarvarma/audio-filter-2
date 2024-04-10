@@ -142,11 +142,11 @@ we get $N\geq 3$ and $0.278 \leq \epsilon \leq 0.61$\\
 \newpage
 The below code plots \eqref{eq:mag_freq_response} for different values of $\epsilon$ .
 \begin{lstlisting}
-https://github.com/dhanushnayakh03/EE1205/tree/main/Audio_%20Filter/codes/plot1.py
+https://github.com/psrikarvarma/filter-design/blob/main/codes/1.py
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/1.01.png}
+\includegraphics[width=1\columnwidth]{figs/1.png}
 \caption{The Analog Low-Pass Frequency Response for $0.278  \leq \epsilon \leq 0.61$}
 \label{fig:H_for_diff_eb}
 \end{figure}
@@ -176,18 +176,18 @@ where $k$ is the index of the pole and \\
 
 The below code computes the values of $s_k$ and stores it in a text file. 
 \begin{lstlisting}
-https://github.com/dhanushnayakh03/EE1205/blob/main/Filter_Design/codes/sk_gen.c
+https://github.com/psrikarvarma/filter-design/blob/main/codes/2.c
 \end{lstlisting}
 The poles obtained are formulated in the table below.
-\input{tables/sk_tab}
+\input{tables/sk.tex}
 
 The below code plots the pole-zero plot.
 \begin{lstlisting}
-https://github.com/dhanushnayakh03/EE1205/blob/main/Filter_Design/codes/plot1.py
+https://github.com/psrikarvarma/filter-design/blob/main/codes/3.py
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/Pole_Zero_plt.png}
+\includegraphics[width=1\columnwidth]{figs/3.png}
 \caption{The Pole zero plot and all the poles lie on an ellipse. The left and right poles have been identified as shown.}
 \label{fig:pole_zero_plt}
 \end{figure}
@@ -207,9 +207,13 @@ Substituting respective values in \eqref{eq:Gain_eq_LP} we get $G_{LP}=0.4166$
      H_{a,LP}(s_L) &= \frac{0.4166}{\brak{s_L-s_5}\brak{s_L-s_6}\brak{s_L-s_7}\brak{s_L-s_8}}\\
      &= \frac{0.4166}{s_{L}^4 + 1.3022s_{L}^3 +1.84781s_{L}^2 + 1.16512s_{L} +0.435003}\label{eq:design}
 \end{align}
+The below code plots the Design vs Specification plot.
+\begin{lstlisting}
+https://github.com/psrikarvarma/filter-design/blob/main/codes/4.py
+\end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/Design_vs_Specification.png}
+\includegraphics[width=1\columnwidth]{figs/4.png}
 \caption{Design vs Specification corresponding to \eqref{eq:design} and \eqref{eq:specification}}
 \label{fig:design_vs_specf}
 \end{figure}
@@ -229,7 +233,7 @@ As there is one to one correspondence between the filters so $\Omega=\Omega_{p1}
 \end{align}
 Substituting \eqref{eq:res1} in \eqref{eq:res2} we obtain Gain of required bass pass filter:
 \begin{align}
-    G_{BP} &= 1.0370 
+    G_{BP} &= 1.0440 
 \end{align}
 Thus the response in s domain 
 \begin{align}
@@ -239,9 +243,13 @@ The expressions in the s-domain and gain factors are computed by writing a Pytho
 In Figure 3, we plot $\vert H_{a,BP}(j\Omega)\vert$ as a function of $\Omega$ for both positve as
 well as negative frequencies.  We find that the passband and stopband frequencies in the figure
 match well with those obtained analytically through the bilinear transformation.
+The below code plots the Band-pass filter plot.
+\begin{lstlisting}
+https://github.com/psrikarvarma/filter-design/blob/main/codes/5.py
+\end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/Band_Pass_Filter.png}
+\includegraphics[width=1\columnwidth]{figs/5.png}
 \caption{The Analog Bandpass Magnitude Response from \eqref{eq:magnitude_bandpass_sdom}.The filter design specifications are satisfied}
 \label{fig:band_pass_filter}
 \end{figure}
@@ -270,9 +278,13 @@ The stopband tolerance is $\delta=0.15$.The cutoff-frequency is given by :
     \omega_{l} &= \frac{B}{2}\\
                 &= 0.025\pi
 \end{align}
+The below code plots the low pass filter frequency and impulse response plot.
+\begin{lstlisting}
+https://github.com/psrikarvarma/filter-design/blob/main/codes/6.py
+\end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/LPF_FIR.png}
+\includegraphics[width=1\columnwidth]{figs/6.png}
 \caption{Frequency response and impulse response of an ideal Low Pass Filter}
 \label{fig:LPF_FIR_1}
 \end{figure}
@@ -333,9 +345,13 @@ Therefore the desired impulse response is :
 \end{cases} \label{eq:h(n)desired_for_LPF}
 \end{align}
 \end{enumerate}
+The below code plots the FIR low pass filter plot.
+\begin{lstlisting}
+https://github.com/psrikarvarma/filter-design/blob/main/codes/7.py
+\end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/FIR_Low_Filter.png}
+\includegraphics[width=1\columnwidth]{figs/7.png}
 \caption{Magnitude Response of Low Pass Filter after using Kaiser Window}
 \label{fig:Kaiser_LPF_response}
 \end{figure}
@@ -363,9 +379,14 @@ Multipying by window function we get :
 \end{cases} \label{eq:h(n)desired_for_BPF}
 \end{align}
 
+The below code plots the FIR band pass filter plot.
+\begin{lstlisting}
+https://github.com/psrikarvarma/filter-design/blob/main/codes/8.py
+\end{lstlisting}
+
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/FIR_Bandpass_Filter.png}
+\includegraphics[width=1\columnwidth]{figs/8.png}
 \caption{Magnitude Response of Band Pass Filter after using Kaiser Window}
 \label{fig:Kaiser_BPF_response}
 \end{figure}
