@@ -2,7 +2,7 @@
 #include <math.h>
 #include <complex.h>
 
-#define N 3
+#define N 4
 #define EPSILON 0.3
 #define OMEGA_LP 1
 #define PI 3.14159265358979323846

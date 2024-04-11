@@ -2,14 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Given parameters
-s1 = 0.3421 - 1.0493j
-s2 = 0.6841 + 0.0000j
-s3 = 0.3421 + 1.0493j
+s1 = -0.1907 -1.0322j
+s2 = -0.4604 -0.4276j
+s3 = -0.4604 +0.4276j
+s4 = -0.1907 +1.0322j
 epsilon = 0.3
 Omega_Lp = 1
 
 # Generate the denominator polynomial
-den = np.poly([s1, s2, s3])
+den = np.poly([s1, s2, s3, s4])
 
 # Define frequency range
 w = np.arange(0, 2.01, 0.01)
