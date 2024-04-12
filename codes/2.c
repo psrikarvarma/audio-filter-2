@@ -30,7 +30,7 @@ int main() {
         return 1;
     }
     fprintf(file, "Real Part, Imaginary Part\n");
-    for (int i = 0; i < 2*N; ++i) { // Corrected loop to iterate over 3*N poles
+    for (int i = 0; i < 2*N; ++i) { // Corrected loop to iterate over 2*N poles
         fprintf(file, "%.4f, %.4f\n", creal(poles[i]), cimag(poles[i]));
     }
     fclose(file);

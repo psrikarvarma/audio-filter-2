@@ -33,7 +33,7 @@ s_L = (1j * w)**2 + Omega0**2
 s_L = s_L / (B * (1j * w))
 
 # Band pass gain
-G_bp = 1.0440
+G_bp = 1.0340
 
 # Substitute s = jw into H(s)
 H = G_bp * (num / np.polyval(den, s_L))

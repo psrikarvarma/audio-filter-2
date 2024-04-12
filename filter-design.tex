@@ -202,7 +202,10 @@ We know that from \eqref{eq:mag_freq_response}:-
 \begin{align}
     \abs{ H_{a,LP}(s_L)} &= \frac{1}{\sqrt{1+\epsilon^2}} \text{at} \hspace{5pt} \Omega_{L}=1 \implies s_{L} = j \label{eq:Gain_eq_LP} 
 \end{align}
-Substituting respective values in \eqref{eq:Gain_eq_LP} we get $G_{LP}=0.4166$
+Substituting respective values in \eqref{eq:Gain_eq_LP} and executing following python code, we get $G_{LP}=0.4166$
+\begin{lstlisting}
+https://github.com/psrikarvarma/filter-design/blob/main/codes/g_lp.py
+\end{lstlisting}
 \begin{align}
      H_{a,LP}(s_L) &= \frac{0.4166}{\brak{s_L-s_5}\brak{s_L-s_6}\brak{s_L-s_7}\brak{s_L-s_8}}\\
      &= \frac{0.4166}{s_{L}^4 + 1.3022s_{L}^3 +1.84781s_{L}^2 + 1.16512s_{L} +0.435003}\label{eq:design}
@@ -231,14 +234,21 @@ As there is one to one correspondence between the filters so $\Omega=\Omega_{p1}
     \abs{H_{a,BP}(j\Omega_{p1})} &= 1 \\
     G_{BP}\abs{H_{a,LP}(s_L)} &= 1 \label{eq:res2}
 \end{align}
-Substituting \eqref{eq:res1} in \eqref{eq:res2} we obtain Gain of required bass pass filter:
+Substituting \eqref{eq:res1} in \eqref{eq:res2} and executing following code, we obtain Gain of required bass pass filter:
+\begin{lstlisting}
+https://github.com/psrikarvarma/filter-design/blob/main/codes/g_bp.py
+\end{lstlisting}
 \begin{align}
-    G_{BP} &= 1.0440 
+    G_{BP} &= 1.034 
 \end{align}
 Thus the response in s domain 
 \begin{align}
-    H_{a,BP}\brak{s} &= \frac{6.49\times 10^{-5}s^4}{s^8 + 0.144s^7 + 0.1682s^6 + 0.1810s^5 + 1.05s^4 + 0.750s^3 + 0.289s^2 + 0.0102s + 0.029} \label{eq:magnitude_bandpass_sdom}
+    H_{a,BP}\brak{s} &= \frac{4.42\times 10^{-5}s^4}{s^8 + 0.132s^7 + 1.179s^6 + 0.1160s^5 + 0.516s^4 + 0.033s^3 + 0.099s^2 + 0.00322s + 0.00708} \label{eq:magnitude_bandpass_sdom}
 \end{align}
+The below code gives actual above expression
+\begin{lstlisting}
+https://github.com/psrikarvarma/filter-design/blob/main/codes/10.py
+\end{lstlisting}
 The expressions in the s-domain and gain factors are computed by writing a Python code. \\
 In Figure 3, we plot $\vert H_{a,BP}(j\Omega)\vert$ as a function of $\Omega$ for both positve as
 well as negative frequencies.  We find that the passband and stopband frequencies in the figure
@@ -260,12 +270,15 @@ From the bilinear transformation, we obtain the digital bandpass filter from the
 \begin{align}
     H_{d,BP}(z) = GH_{a,BP}(s)\vert_{s = \frac{1-z^{-1}}{1 + z^{-1}}}
 \end{align}
-Substituting $s=\frac{1-z^{-1}}{1+z^{-1}}$ in \eqref{eq:magnitude_bandpass_sdom} and calculating expression using a python code we get :
+Substituting $s=\frac{1-z^{-1}}{1+z^{-1}}$ in \eqref{eq:magnitude_bandpass_sdom} and calculating expression below python code we get,
+\begin{lstlisting}
+https://github.com/psrikarvarma/filter-design/blob/main/codes/11.py
+\end{lstlisting}
 \begin{align}
-    H_{d,BP}(z) &= \frac{G\brak{1 - 4z^{-2} + 6z^{-4} - 4z^{-6} + z^{-8}}}{3.6214 - 6.9496z^{-1} + 26.7376z^{-2} - 60.1464z^{-3} + 73.758z^{-4} - 49.572z^{-5} + 26.144z^{-6} - 7.62z^{-7} + 1.451z^{-8}}
+    H_{d,BP}(z) &= \frac{G\brak{1 - 3.99z^{-2} + 5.99z^{-4} - 3.99z^{-6} + z^{-8}}}{3.085 - 13.202z^{-1} + 32.841z^{-2} - 52.588z^{-3} + 60.811z^{-4} - 49.978z^{-5} + 29.651z^{-6} - 11.324z^{-7} + 2.516z^{-8}}
 \end{align}
 
-where $G=6.49\times 10^{-5}$    
+where $G=4.42\times 10^{-5}$    
 
 \section{The FIR Filter}
 We design the FIR filter by first obtaining the (non-causal) lowpass equivalent using the Kaiser window
